@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Entregables</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Lista de Entregables</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Inicio</a></li>
+                <li><a href="{% url 'curso_formulario' %}">Agregar Curso</a></li>
+                <li><a href="{% url 'profesores_list' %}">Profesores</a></li>
+                <li><a href="{% url 'estudiantes_list' %}">Estudiantes</a></li>
+                <li><a href="{% url 'entregables_list' %}">Entregables</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Descripción</th>
+                    <th>Fecha de Entrega</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entregable in entregables %}
+                <tr>
+                    <td>{{ entregable.titulo }}</td>
+                    <td>{{ entregable.descripcion }}</td>
+                    <td>{{ entregable.fecha_entrega }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="3">No hay entregables registrados.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <p>&copy; 2024 Mi Aplicación</p>
+    </footer>
+</body>
+</html>
