@@ -1,50 +1,24 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Profesores</title>
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
-</head>
-<body>
-    <header>
-        <h1>Lista de Profesores</h1>
-        <nav>
-            <ul>
-                <li><a href="{% url 'index' %}">Inicio</a></li>
-                <li><a href="{% url 'curso_formulario' %}">Agregar Curso</a></li>
-                <li><a href="{% url 'profesores_list' %}">Profesores</a></li>
-                <li><a href="{% url 'estudiantes_list' %}">Estudiantes</a></li>
-                <li><a href="{% url 'entregables_list' %}">Entregables</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for profesor in profesores %}
-                <tr>
-                    <td>{{ profesor.nombre }}</td>
-                    <td>{{ profesor.apellido }}</td>
-                    <td>{{ profesor.email }}</td>
-                </tr>
-                {% empty %}
-                <tr>
-                    <td colspan="3">No hay profesores registrados.</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </main>
-    <footer>
-        <p>&copy; 2024 Mi Aplicación</p>
-    </footer>
-</body>
-</html>
+{% extends 'AppCoder/base.html' %}
+
+{% block title %} Profesores {% endblock %}
+
+{% block main %}
+<div class="container px-4 px-lg-5 mt-5">
+    <h2 class="text-center mb-4">Lista de Profesores</h2>
+    <div class="row">
+        {% for profesor in profesores %}
+        <div class="col-md-4 mb-3">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">{{ profesor.nombre }}</h5>
+                    <p class="card-text">Email: {{ profesor.email }}</p>
+                    <p class="card-text">Especialidad: {{ profesor.especialidad }}</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-center">No hay profesores disponibles.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
