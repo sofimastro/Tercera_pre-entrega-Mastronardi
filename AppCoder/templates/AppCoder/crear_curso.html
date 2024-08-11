@@ -1,0 +1,14 @@
+{% extends 'AppCoder/base.html' %}
+
+{% block title %} Crear Curso {% endblock %}
+
+{% block main %}
+<h1>Crear Curso</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Guardar Curso</button>
+</form>
+{% endblock %}
+

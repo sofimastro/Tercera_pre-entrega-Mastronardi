@@ -1,0 +1,56 @@
+{% extends 'AppCoder/base.html' %}
+
+{% block title %} Buscar {% endblock %}
+
+{% block main %}
+<h1>Buscar en la base de datos</h1>
+
+<!-- Formulario de búsqueda -->
+<form method="get" action="{% url 'buscar' %}">
+    {{ form.as_p }}
+    <button type="submit">Buscar</button>
+</form>
+
+<!-- Mostrar resultados si existen -->
+{% if results %}
+    <h2>Resultados de la búsqueda:</h2>
+    <h3>Cursos:</h3>
+    <ul>
+        {% for curso in results.cursos %}
+            <li>{{ curso.nombre }}</li>
+        {% empty %}
+            <li>No se encontraron cursos.</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Estudiantes:</h3>
+    <ul>
+        {% for estudiante in results.estudiantes %}
+            <li>{{ estudiante.nombre }} {{ estudiante.apellido }}</li>
+        {% empty %}
+            <li>No se encontraron estudiantes.</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Profesores:</h3>
+    <ul>
+        {% for profesor in results.profesores %}
+            <li>{{ profesor.nombre }} {{ profesor.apellido }}</li>
+        {% empty %}
+            <li>No se encontraron profesores.</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Entregables:</h3>
+    <ul>
+        {% for entregable in results.entregables %}
+            <li>{{ entregable.nombre }}</li>
+        {% empty %}
+            <li>No se encontraron entregables.</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No se han realizado búsquedas aún.</p>
+{% endif %}
+{% endblock %}
+
