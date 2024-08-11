@@ -1,0 +1,15 @@
+{% extends 'AppCoder/base.html' %}
+
+{% block title %} Formulario - Agregar Curso {% endblock %}
+
+{% block main %}
+<h1>Agregar Curso</h1>
+<form method="post">
+    {% csrf_token %}
+    <label for="curso">Nombre del Curso:</label>
+    <input type="text" id="curso" name="curso" required>
+    <label for="camada">Número de Camada:</label>
+    <input type="number" id="camada" name="camada" required>
+    <button type="submit">Agregar Curso</button>
+</form>
+{% endblock %}
