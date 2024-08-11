@@ -7,18 +7,18 @@
     <h2 class="text-center mb-4">Lista de Profesores</h2>
     <div class="row">
         {% for profesor in profesores %}
-        <div class="col-md-4 mb-3">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">{{ profesor.nombre }}</h5>
-                    <p class="card-text">Email: {{ profesor.email }}</p>
-                    <p class="card-text">Especialidad: {{ profesor.especialidad }}</p>
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ profesor.nombre }}</h5>
+                        <p class="card-text">Email: {{ profesor.email }}</p>
+                    </div>
                 </div>
             </div>
-        </div>
         {% empty %}
-        <p class="text-center">No hay profesores disponibles.</p>
+            <p class="text-center">No hay profesores disponibles.</p>
         {% endfor %}
     </div>
 </div>
 {% endblock %}
+

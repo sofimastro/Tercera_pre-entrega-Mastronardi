@@ -11,24 +11,21 @@
                 <th>ID</th>
                 <th>Nombre</th>
                 <th>Email</th>
-                <th>Curso</th>
             </tr>
         </thead>
         <tbody>
             {% for estudiante in estudiantes %}
-            <tr>
-                <td>{{ estudiante.id }}</td>
-                <td>{{ estudiante.nombre }}</td>
-                <td>{{ estudiante.email }}</td>
-                <td>{{ estudiante.curso }}</td>
-            </tr>
+                <tr>
+                    <td>{{ estudiante.id }}</td>
+                    <td>{{ estudiante.nombre }}</td>
+                    <td>{{ estudiante.email }}</td>
+                </tr>
             {% empty %}
-            <tr>
-                <td colspan="4" class="text-center">No hay estudiantes disponibles.</td>
-            </tr>
+                <tr>
+                    <td colspan="3" class="text-center">No hay estudiantes disponibles.</td>
+                </tr>
             {% endfor %}
         </tbody>
     </table>
 </div>
 {% endblock %}
-
