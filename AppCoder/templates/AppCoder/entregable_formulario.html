@@ -1,0 +1,12 @@
+{% extends 'AppCoder/base.html' %}
+
+{% block title %} Formulario - Agregar Entregable {% endblock %}
+
+{% block main %}
+<h1>Agregar Entregable</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }} <!-- Renderiza el formulario de entregable -->
+    <button type="submit">Agregar Entregable</button>
+</form>
+{% endblock %}

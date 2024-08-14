@@ -1,0 +1,12 @@
+{% extends 'AppCoder/base.html' %}
+
+{% block title %} Formulario - Agregar Estudiante {% endblock %}
+
+{% block main %}
+<h1>Agregar Estudiante</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }} <!-- Renderiza el formulario de estudiante -->
+    <button type="submit">Agregar Estudiante</button>
+</form>
+{% endblock %}
